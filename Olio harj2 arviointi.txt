@@ -1,0 +1,9 @@
+Sundberg-Jon:K2754:TTV15S6
+Teht:Pist:Max
+h01t01:2:2
+h01t02:2:2
+h01t03:4:4
+h01t04:2:2
+h01t05:2:2
+h01t06:2:2
+h01t07:4:4
