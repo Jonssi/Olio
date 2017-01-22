@@ -1,0 +1,355 @@
+Jon Sundberg
+Harjoitus 1
+-----------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numero = new List<int>();
+
+            for (int a = 0; a < 5 ; a++)
+            {
+                Console.WriteLine("Anna luku: ");
+                numero.Add(int.Parse(Console.ReadLine()));
+            }
+
+            int min = numero.Min();
+            int max = numero.Max();
+            numero.Remove(min);
+            numero.Remove(max);
+
+
+            Console.Write("Kokonaispisteet ovat " + numero.Sum());
+            
+            Console.ReadLine();
+        }
+    }
+}
+
+Harjoitus 2
+----------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int luku;
+            int summa = 0;
+            string a0 = "0:";
+            string a1 = "1:";
+            string a2 = "2:";
+            string a3 = "3:";
+            string a4 = "4:";
+            string a5 = "5:";
+
+            do
+            {
+                Console.WriteLine("Anna arvosana (lopeta syöttäminen kirjoittamalla 10) ");
+                luku = int.Parse(Console.ReadLine());
+
+                if (luku == 0)
+                {
+                    a0 = a0 + "*";
+                }
+                if (luku == 1)
+                {
+                    a1 = a1 + "*";
+                }
+                if (luku == 2)
+                {
+                    a2 = a2 + "*";
+                }
+                if (luku == 3)
+                {
+                    a3 = a3 + "*";
+                }
+                if (luku == 4)
+                {
+                    a4 = a4 + "*";
+                }
+                if (luku == 5)
+                {
+                    a5 = a5 + "*";
+                }
+            }
+
+            while (luku != 10);
+            Console.WriteLine("Arvosanat: \r\n" + a0 + "\r\n" + a1 + "\r\n" + a2 + "\r\n" +a3 + "\r\n" +a4 + "\r\n" + a5 + "\r\n");
+
+            Console.Read();
+        }
+    }
+}
+
+Harjoitus 3
+----------------------------
+
+using System;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int luku = 0;
+            Console.Write("Anna luku: ");
+            luku = int.Parse(Console.ReadLine());
+            int puu = luku - 2;
+            int leveys = luku + 2;
+            int tyhja = leveys / 2;
+            int tahdet = 0;
+            for (int i = puu; i > 0; i--)
+            {
+                for (int j = tyhja; j > 0; j--)
+                {
+                    Console.Write(" ");
+                }
+                tahdet = leveys - (2 * tyhja);
+                for (int k = tahdet; k > 0; k--)
+                {
+                    Console.Write("*");
+                }
+                tyhja--;
+                Console.WriteLine();
+            }
+            tyhja = leveys / 2;
+            for (int l = 0; l < 2; l++)
+            {
+                for (int m = tyhja; m > 0; m--)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine("*");
+            }
+            Console.Read();
+        }
+    }
+}
+
+Harjoitus 4
+----------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int numero = r.Next(0, 100);
+            int arvaus = 0;
+            int summa = 0;
+
+            do
+            {
+                Console.WriteLine("Arvaa numero: ");
+                arvaus = int.Parse(Console.ReadLine());
+                summa++;
+
+                if (arvaus < numero)
+                {
+                    Console.WriteLine("Luku on suurempi");
+                }
+                if (arvaus > numero)
+                {
+                    Console.WriteLine("Luku on pienempi");
+                }
+            }
+
+            while (arvaus != numero);
+                Console.WriteLine("Hienoa, arvasit luvun " + summa + " kerralla");
+
+            Console.Read();
+        }
+    }
+}
+
+Harjoitus 5
+----------------------------
+
+using System;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] taulukko1 = { 10, 20, 30, 40, 50 };
+            int[] taulukko2 = { 5, 15, 25, 35, 45 };
+            int[] taulukko3 = new int[taulukko1.Length + taulukko2.Length];
+            Array.Copy(taulukko1, taulukko3, taulukko1.Length);
+            Array.Copy(taulukko2, 0, taulukko3, taulukko1.Length, taulukko2.Length);
+            Console.Write("Luvut taulukossa 1 : ");
+            tulostus(taulukko1);
+            Console.Write("Luvut taulukossa 2 : ");
+            tulostus(taulukko2);
+            Array.Sort(taulukko3);
+            Console.Write("Luvut yhdistetyssä taulukossa : "); 
+            tulostus(taulukko3);
+
+            Console.ReadKey();
+        }
+
+        static void tulostus(int[] taulukko)
+        {
+
+            for (int h = 0; h < taulukko.Length; h++)
+            {
+                Console.Write(taulukko[h]);
+                if (h != (taulukko.Length - 1)) Console.Write(", ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+Harjoitus 6
+----------------------------
+
+using System;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string lause = "";
+            string tarkistus = "";
+
+            Console.Write("Syötä merkkijono: ");
+            lause = Console.ReadLine();
+
+            for (int a = lause.Length-1; a >= 0; a--)
+            {
+                tarkistus += lause[a].ToString();
+            }
+
+            if (tarkistus == lause)
+            {
+                Console.WriteLine("Lause on palidromi");
+            }
+            else
+            {
+                Console.WriteLine("Lause ei ole palidromi");
+            }
+
+            Console.Read();
+        }
+    }
+}
+
+Harjoitus 7
+----------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            string asana = "Harjoitus";
+            string asanaiso = asana.ToUpper();
+
+            StringBuilder peli = new StringBuilder(asana.Length);
+            for (int i = 0; i < asana.Length; i++)
+                peli.Append('_');
+
+            List<char> oarvaukset = new List<char>();
+            List<char> varvaukset = new List<char>();
+
+            int elamat = 5;
+            bool voitto = false;
+            int kirjaimet = 0;
+
+            string input;
+            char arvaus;
+
+            while (!voitto && elamat > 0)
+            {
+                Console.Write("Arvaa kirjain: ");
+
+                input = Console.ReadLine().ToUpper();
+                arvaus = input[0];
+
+              
+
+                if (asanaiso.Contains(arvaus))
+                {
+                    oarvaukset.Add(arvaus);
+
+                    for (int i = 0; i < asana.Length; i++)
+                    {
+                        if (asanaiso[i] == arvaus)
+                        {
+                            peli[i] = asana[i];
+                            kirjaimet++;
+                        }
+                    }
+
+                    if (kirjaimet == asana.Length)
+                        voitto = true;
+                }
+                else
+                {
+                    varvaukset.Add(arvaus);
+
+                    Console.WriteLine("Kirjainta {0} ei ole sanassa", arvaus);
+                    elamat--;
+                }
+
+                Console.WriteLine(peli.ToString());
+            }
+
+            if (voitto)
+                Console.WriteLine("Arvasit kaikki kirjaimet oikein!");
+            else
+                Console.WriteLine("Hävisit :( oikea sana on '{0}'", asana);
+
+            Console.Read();
+        }
+    }
+}
